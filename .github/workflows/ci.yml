@@ -4,6 +4,8 @@ on:
   push:
     branches: [ main ]
   pull_request:
+  schedule:
+    - cron: "0 * * * *"
 
 jobs:
   run-pipeline:
@@ -23,5 +25,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run pipeline
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           python src/main.py
