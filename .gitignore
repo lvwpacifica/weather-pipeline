@@ -3,3 +3,5 @@ __pycache__/
 .vs/
 weather.db
 venv/
+
+src/weather_*.json
