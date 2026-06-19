@@ -25,6 +25,11 @@ jobs:
           pip install -r requirements.txt
           pip install pyspark
 
+      - name: Download PostgreSQL JDBC Driver
+        run: |
+            curl -L -o src/postgresql-42.7.3.jar https://jdbc.postgresql.org/download/postgresql-42.7.3.jar
+
+
       - name: Run pipeline
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}

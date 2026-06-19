@@ -28,7 +28,7 @@ def aggregate_weather_records():
     jdbc_url, username, password = parse_database_url(database_url)
 
 
-    jar_path = r"C:\Users\lvwpa\OneDrive\Desktop\weather_pipeline\src\postgresql-42.7.3.jar"
+    jar_path = os.path.join(os.path.dirname(__file__), "postgresql-42.7.3.jar")
 
     spark = SparkSession.builder \
         .appName("WeatherAggregation") \
