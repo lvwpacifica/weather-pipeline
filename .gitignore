@@ -5,3 +5,4 @@ weather.db
 venv/
 
 src/weather_*.json
+*.jar
