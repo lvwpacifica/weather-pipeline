@@ -13,7 +13,9 @@ def init_db():
                     id SERIAL PRIMARY KEY,
                     time TIMESTAMP,
                     temperature REAL,
-                    windspeed REAL
+                    windspeed REAL,
+                    precipitation REAL,
+                    weathercode INTEGER
                 )
             """)
         conn.commit()
@@ -22,7 +24,7 @@ def insert_weather(data):
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute("""
-                INSERT INTO weather (time, temperature, windspeed)
-                VALUES (%s, %s, %s)
-            """, (data["time"], data["temperature"], data["windspeed"]))
+                INSERT INTO weather (time, temperature, windspeed, precipitation, weathercode)
+                VALUES (%s, %s, %s, %s, %s)
+            """, (data["time"], data["temperature"], data["windspeed"], data["precipitation"], data["weathercode"]))
         conn.commit()
