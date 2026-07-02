@@ -1,10 +1,12 @@
 import os
 import psycopg
 
+# Create a connection to the PostgreSQL database using the environment variable
 def get_connection():
     database_url = os.environ["DATABASE_URL"]
     return psycopg.connect(database_url)
 
+# Create the weather table if it does not already exist
 def init_db():
     with get_connection() as conn:
         with conn.cursor() as cursor:
@@ -20,6 +22,7 @@ def init_db():
             """)
         conn.commit()
 
+# Insert a weather record into the weather table
 def insert_weather(data):
     with get_connection() as conn:
         with conn.cursor() as cursor:
