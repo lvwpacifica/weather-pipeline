@@ -1,3 +1,4 @@
+# Extract and rename the weather fields needed for the ETL pipeline
 def transform_weather(data):
     current = data["current"]
 
