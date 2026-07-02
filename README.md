@@ -1,15 +1,22 @@
-# Weather Data Pipeline
+# Weather Data Ingestion Pipeline
 
-This project implements a Python ETL pipeline that ingests real-time weather data from an external API, transforms nested JSON data, and stores time-series records in a SQLite database.
+This project implements an end-to-end cloud-based ETL pipeline that ingests weather data from the Meteo Weather API, stores raw JSON data in Azure Data Lake Storage Gen2, transforms the data using PySpark, and loads daily aggregated results into PostgreSQL for reporting in Power BI.
 
 ## Features
-- Extracts weather data using Open-Meteo API
-- Transforms nested JSON into structured format
-- Stores data in SQLite database
-- Queries historical weather data using SQL
+
+- Extracts weather data from the Meteo Weather API
+- Stores raw JSON data in Azure Data Lake Storage Gen2
+- Loads raw weather records into PostgreSQL
+- Performs daily aggregations using PySpark
+- Visualizes weather trends with Power BI
+- Automates pipeline execution using GitHub Actions
 
 ## Tech Stack
+
 - Python
-- SQLite
-- Requests
-- Git & GitHub
+- PySpark
+- Azure Data Lake Storage Gen2
+- PostgreSQL (Neon)
+- Power BI
+- GitHub Actions
+- Git
