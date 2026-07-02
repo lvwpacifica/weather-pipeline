@@ -4,6 +4,7 @@ from datetime import datetime
 import os
 from azure.storage.blob import BlobServiceClient
 
+# Upload the raw weather JSON file to Azure Data Lake Storage Gen2
 def upload_to_azure(filename):
     account_name = os.environ["AZURE_STORAGE_ACCOUNT_NAME"]
     account_key = os.environ["AZURE_STORAGE_ACCOUNT_KEY"]
@@ -29,13 +30,14 @@ def upload_to_azure(filename):
     print(f"Uploaded {filename} to Azure container '{container_name}' as {blob_name}")
 
 
-
+# Fetch current weather data from the Open-Meteo API
 def fetch_weather():
     url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m,precipitation,weather_code"
     response = requests.get(url)
     response.raise_for_status()
     return response.json()
 
+# Save the raw weather API response as a timestamped JSON file
 def save_weather(data):
     filename = f"weather_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
 
