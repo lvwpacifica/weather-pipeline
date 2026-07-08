@@ -32,7 +32,7 @@ def upload_to_azure(filename):
 
 # Fetch current weather data from the Open-Meteo API
 def fetch_weather():
-    url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m,precipitation,weather_code"
+    url = "https://api.open-meteo.com/v1/forecast?latitude=32.78&longitude=-96.8&current=temperature_2m,wind_speed_10m,precipitation,weather_code"
     response = requests.get(url)
     response.raise_for_status()
     return response.json()
